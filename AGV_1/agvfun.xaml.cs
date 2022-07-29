@@ -108,10 +108,23 @@ namespace AGV_1
             mCalculationIndex++;
             agv = Math.Truncate(100 * (TKS_sum / 60)) / 100;
    
-
             AGVTimeChangedEvent3?.BeginInvoke(agv, total, null,null);
             AGVTimeChangedEvent2?.BeginInvoke(agv, total, null,null);
             AGVTimeChangedEvent1?.BeginInvoke(agv, total,null,null);
+            // mCalculationIndex 설비동작당 1~7개의 값이 순차적으로 출력
+            //Console.WriteLine(mCalculationIndex);
+
+        }
+
+        public void Count(int count) //여기 안에 클릭당 카운터수를 구해서 time_tick 함수의 매개변수 값으로 넘겨주고 그만큼 for 문을 이용하여 반복하여 해당 agv에 led를 구현    // 호출 할 것 
+        {
+                Console.WriteLine(count);
+     
+
+
+
+            //Console.WriteLine(count);
+
         }
         
         public void SequAgv()
@@ -139,11 +152,14 @@ namespace AGV_1
             {
                 if ((bool)Chk1.IsChecked && ((bool)radi1.IsChecked || (bool)radi2.IsChecked || (bool)radi3.IsChecked)) //한 객체에 해당하는 박스에 체크를 하고 3개의 라디오 버튼이 클릭 되어야 start
                 {
+                    byte[] buffer = new byte[4] {1,2,3,4};
+ 
 
                     TKS_sum = 0;
                     agv = 0;
                     mCalculationIndex = 0;
                     timer.Start();
+                   // Console.WriteLine(count);
                 }
             }
             else

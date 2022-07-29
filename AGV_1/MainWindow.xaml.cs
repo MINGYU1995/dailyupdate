@@ -134,19 +134,20 @@ namespace AGV_1
         private void Btn_Methond()
         {
             double total = 0.0;
-            agvfun1.StartCalc();
+            agvfun1.StartCalc(); //3개의 호출을 하나로 통일 해야된다. 
             agvfun2.StartCalc();
             agvfun3.StartCalc();
             agvfun1.Mesg(); //값 요청 경고창.
             agvfun2.Mesg();
-            agvfun3.Mesg();.
+            agvfun3.Mesg();
 
             msg4.Content = total.ToString(); //최종결과값.
             agvfun1.TotalClear();
             agvfun2.TotalClear();
             agvfun3.TotalClear();
-
         }
+
+         
 
        // (bool) Chk1.IsChecked && ((bool) radi1.IsChecked || (bool) radi2.IsChecked || (bool) radi3.IsChecked)
         private bool validateStartCondition() //버튼 클릭시 경고창제어 메서드
